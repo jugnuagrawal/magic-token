@@ -1,0 +1,27 @@
+{
+  "name": "magic-token",
+  "version": "1.0.0",
+  "description": "A library to generate unique token, that can be used as identifier.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jugnuagrawal/magic-token.git"
+  },
+  "keywords": [
+    "tokens",
+    "unique",
+    "identifier",
+    "random",
+    "short",
+    "secure"
+  ],
+  "author": "Jugnu Agrawal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jugnuagrawal/magic-token/issues"
+  },
+  "homepage": "https://github.com/jugnuagrawal/magic-token#readme"
+}
