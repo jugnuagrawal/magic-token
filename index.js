@@ -1,9 +1,10 @@
-const crypto = require('crypto');
+const generator = require('./lib/generator');
+const storage = require('./lib/storage');
 
-function _generateToken() {
-    let x = Math.random();
-    let y = (Number)(new Date());
-    return crypto.createHash('RSA-SHA256').update(y+'$'+x).digest('base64');
-}
-
-module.exports.token = _generateToken;
+module.exports = {
+    token:generator.token,
+    store:storage.init,
+    STORAGE_Memory:'memory',
+    STORAGE_Database:'database',
+    STORAGE_File:'file'
+};
