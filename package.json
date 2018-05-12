@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/jugnuagrawal/magic-token/issues"
   },
-  "homepage": "https://github.com/jugnuagrawal/magic-token#readme"
+  "homepage": "https://github.com/jugnuagrawal/magic-token#readme",
+  "dependencies": {
+    "cookie": "^0.3.1"
+  }
 }
