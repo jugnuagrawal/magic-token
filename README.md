@@ -84,6 +84,49 @@ store.remove(token,(status)=>{
 });
 ```
 
+### Use with express
+
+```javascript
+const express = require('express');
+const magicToken = require('magic-token');
+
+const app = express();
+
+const magicTokenOptions = {
+    secret:'your-secret', //if secret is not provided, data will be stored without encryption in JSON format.
+    headers:true, //if true token will be send in headers
+    cookie:true //if true token will be send in cookie
+}
+
+app.use(magicToken.middleware(magicTokenOptions));
+
+app.get('/set/:key/:value',(req,res)=>{
+    req.magicToken.set(req.params.key,req.params.value,(status)=>{
+        if(status){
+            res.status(200).end('Data Saved');
+        }else{
+            res.status(500).end('Unable to Save data');
+        }
+    });
+})
+
+app.get('/get',(req,res)=>{
+    req.magicToken.get((data)=>{
+        res.json(data);
+    }) 
+})
+
+app.get('/get/:key',(req,res)=>{
+    req.magicToken.get(req.params.key,(data)=>{
+        res.json(data);
+    }) 
+})
+
+app.listen(3000,()=>{
+    console.log('server is listening on port 3000');
+})
+```
+
 License
 ----
 
