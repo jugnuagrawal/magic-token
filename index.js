@@ -1,10 +1,12 @@
 const generator = require('./lib/generator');
 const storage = require('./lib/storage');
+const middleware = require('./lib/middleware');
+
 
 module.exports = {
     token:generator.token,
     store:storage.init,
-    STORAGE_Memory:'memory',
-    STORAGE_Database:'database',
-    STORAGE_File:'file'
+    middleware:middleware.init,
+    STORAGE_MONGO_DB:'database',
+    STORAGE_FILE:'file'
 };
