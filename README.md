@@ -4,7 +4,7 @@ A library to generate unique token, that can be used as identifier or to store s
 
 ## Features
 
-- Generates token based on timestamp with some random characters
+- Generates token based on timestamp
 - Always unique with accuracy rate of upto 1M tokens per second
 - Optimized generation with low latency
 - Open source
