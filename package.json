@@ -1,6 +1,6 @@
 {
   "name": "magic-token",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A library to generate unique token, that can be used as identifier.",
   "main": "index.js",
   "scripts": {
