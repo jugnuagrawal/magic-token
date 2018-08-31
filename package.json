@@ -28,6 +28,6 @@
   "dependencies": {
     "cookie": "^0.3.1",
     "deepmerge": "^2.1.1",
-    "mongoose": "^5.2.10"
+    "mongoose": "^5.2.12"
   }
 }
