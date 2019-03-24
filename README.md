@@ -7,7 +7,6 @@ A package to generate unique token, that can be used as identifier or to store d
 - Generates 32 characters long token
 - Always unique with accuracy rate of upto 1M tokens per second
 - Secure data storage if secret is provided
-- Open source
 
 ## How to use
 
@@ -39,126 +38,43 @@ const store = magicToken.store({
 
 
 //Set data for the token
-store.set(token,{name:'John Doe',email:'john@doe.com'},(err,status)=>{
-    if(!err){
-        //Data stored for the provided token
-    }else{
-        //Data not stored for the provided token
-    }
+store.set(token,{name:'John Doe',email:'john@doe.com'}).then(status=>{
+    //Do your stuff
+}).catch(err=>{
+    //Error occured
 });
 
 
 //Get data for the token
-store.get(token,'name',(err,data)=>{
-    if(!err){
-        //Data found for the provided key
-    }else{
-        //Data not found for the provided key
-    }
+store.get(token,'name').then(data=>{
+    //Data found for the provided key
+}).catch(err=>{
+    //Error occured
 });
 
 //or
 
-store.get(token,(err,data)=>{
-    if(!err){
-        //Data found for the provided token
-    }else{
-        //Data not found for the provided token
-    }
+store.get(token).then(data=>{
+    //Data found for the provided token
+}).catch(err=>{
+    //Error occured
 });
 
 
 //Deletes data from the token
-store.delete(token,'name',(err,data)=>{
-    if(!err){
-        //Data deleted for the provided key
-    }else{
-        //Data not deleted for the provided key
-    }
+store.delete(token,'name').then(data=>{
+    //Data deleted for the provided key
+}).catch(err=>{
+    //Error occured
 });
 
 //or
 
-store.delete(token,(err,data)=>{
-    if(!err){
-        //Data deleted for the provided token
-    }else{
-        //Data not deleted for the provided token
-    }
+store.delete(token).then(data=>{
+    //Data deleted for the provided token
+}).catch(err=>{
+    //Error occured
 });
-```
-
-### Use with express.js
-
-```javascript
-const express = require('express');
-const magicToken = require('magic-token');
-
-const app = express();
-
-const magicTokenOptions = {
-    secret:'your-secret', //if secret is not provided, data will be stored without encryption in JSON format.
-    headers:true, //if true token will be send in headers
-    cookie:true //if true token will be send in cookie
-    storage:magicToken.STORAGE_MONGO_DB //default storage is file.
-    mongoURL: 'mongodb://localhost:27017/tokens' // Mongo URL is required if storage type mongodb is used.
-}
-
-app.use(magicToken.middleware(magicTokenOptions));
-
-app.post('/tokenData',(req,res)=>{
-    req.magicToken.set(req.body,(err,status)=>{
-        if(status){
-            res.status(200).end('Data Saved');
-        }else{
-            res.status(500).end(err.message);
-        }
-    });
-});
-
-app.get('/tokenData',(req,res)=>{
-    req.magicToken.get((err,data)=>{
-        if(err){
-            res.status(500).end(err.message);
-        }else{
-            res.status(200).json(data);
-        }
-    });
-});
-
-app.get('/tokenData/:key',(req,res)=>{
-    req.magicToken.get(req.params.key,(err,data)=>{
-        if(err){
-            res.status(500).end(err.message);
-        }else{
-            res.status(200).json(data);
-        }
-    }) 
-});
-
-app.delete('/tokenData',(req,res)=>{
-    req.magicToken.delete((err,data)=>{
-        if(err){
-            res.status(500).end(err.message);
-        }else{
-            res.status(200).json(data);
-        }
-    }) 
-});
-
-app.delete('/tokenData/:key',(req,res)=>{
-    req.magicToken.delete(req.params.key,(err,data)=>{
-        if(err){
-            res.status(500).end(err.message);
-        }else{
-            res.status(200).json(data);
-        }
-    }) 
-});
-
-app.listen(3000,()=>{
-    console.log('server is listening on port 3000');
-})
 ```
 
 License
