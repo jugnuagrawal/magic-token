@@ -1,7 +1,7 @@
 {
   "name": "magic-token",
   "version": "4.0.0",
-  "description": "A library to generate unique token, that can be used as identifier.",
+  "description": "Generate unique tokens, preferred as authorization token and can store data",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
