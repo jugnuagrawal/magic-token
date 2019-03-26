@@ -1,6 +1,6 @@
 {
   "name": "magic-token",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Generate unique tokens, preferred as authorization token and can store data",
   "main": "index.js",
   "scripts": {
